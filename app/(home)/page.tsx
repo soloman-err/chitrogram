@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="container rounded-xl bg-dark/40 p-4">
       <h1>chitrogram</h1>
     </main>
   );
