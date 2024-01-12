@@ -1,8 +1,12 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+
+const hostnames = ['images.unsplash.com'];
 
 module.exports = {
   images: {
-    domains: ['images.unsplash.com'],
+    remotePatterns: hostnames?.map((hostname) => ({
+      protocol: 'https',
+      hostname,
+    })),
   },
 };
