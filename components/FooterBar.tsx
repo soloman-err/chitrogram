@@ -10,7 +10,11 @@ const FooterBar = () => {
         </Link>
         <Search size={28} />
         <PlusCircle size={28} />
-        <Bell size={28} />
+
+        <Link href={'/notification'}>
+          <Bell size={28} />
+        </Link>
+
         <Link href={'/profile'}>
           <UserCircle size={28} />
         </Link>

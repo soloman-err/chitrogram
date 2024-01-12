@@ -45,8 +45,12 @@ const Header = () => {
       {/* User Functionalities */}
       <div className="hidden md:flex items-center gap-2">
         <PlusCircle />
-        <Bell />
-        <CircleUserRound />
+        <Link href={'/notifications'}>
+          <Bell />
+        </Link>
+        <Link href={'/profile'}>
+          <CircleUserRound />
+        </Link>
       </div>
 
       <div className="md:hidden" onClick={toggleMenu}>

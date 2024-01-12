@@ -23,7 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${outfit.className}`}>
         <Header />
-        <main>{children}</main>
+        <main className=" min-h-screen">{children}</main>
         <div className="sticky bottom-0 right-0 left-0">
           <FooterBar />
         </div>
