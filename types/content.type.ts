@@ -26,3 +26,10 @@ export type Content = {
   topic_submissions: [];
   tags: [];
 };
+
+export type ImageData = {
+  urls: {
+    raw: string;
+  };
+  alt_description: string;
+};
