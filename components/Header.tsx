@@ -2,7 +2,7 @@ import { Bell, CircleUserRound, PlusCircle, Search } from 'lucide-react';
 
 const Header = () => {
   return (
-    <section className="container flex gap-10 justify-between py-2 px-4 my-4 bg-dark/5 rounded-full">
+    <section className="container hidden md:flex gap-10 justify-between py-2 px-4 my-4 bg-dark/5 rounded-full">
       {/* Brand Logo */}
       <div className="flex items-center gap-2">
         <span className="text-3xl font-semibold -rotate-45">&copy;</span>
