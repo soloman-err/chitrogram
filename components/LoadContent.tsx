@@ -7,6 +7,8 @@ import { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import Masonry from 'react-masonry-css';
 
+const blurDataURL = 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD...';
+
 let page = 1;
 let query = 'mustang';
 
@@ -65,7 +67,7 @@ const LoadContent = () => {
                 width={400}
                 height={400}
                 placeholder="blur"
-                blurDataURL={image?.urls?.raw}
+                blurDataURL={blurDataURL}
               />
             </motion.div>
           )
