@@ -42,7 +42,7 @@ const useContent = () => {
 
       try {
         const response = await fetch(
-          'https://api.unsplash.com/search/photos?page=1&query=outfit&client_id=Ff22f5zprsObQa_a7nGFfHiVja-s2ifGq6BWX3sCvF8'
+          'https://api.unsplash.com/search/photos?page=1&query=mustang&client_id=Ff22f5zprsObQa_a7nGFfHiVja-s2ifGq6BWX3sCvF8'
         );
         if (!response.ok) {
           throw new Error('Network response was not ok');
