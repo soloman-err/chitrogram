@@ -33,3 +33,14 @@ export type ImageData = {
   };
   alt_description: string;
 };
+
+export type ContentCardProps = {
+  index: number;
+  image: {
+    urls: {
+      [x: string]: string | StaticImport;
+      raw: string;
+    };
+    alt_description: string;
+  };
+};

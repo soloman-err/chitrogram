@@ -47,7 +47,8 @@ const LoadContent = () => {
                 alt={image?.alt_description}
                 width={400}
                 height={400}
-                key={index}
+                placeholder="blur"
+                blurDataURL={image?.urls?.raw}
               />
             </div>
           )
