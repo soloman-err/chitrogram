@@ -8,7 +8,7 @@ export default function Home() {
   console.log('from homepage', photos);
 
   const breakpointColumnsObj = {
-    default: 4,
+    default: 6,
     1100: 3,
     700: 2,
     500: 2,

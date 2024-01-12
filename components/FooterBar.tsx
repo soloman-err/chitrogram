@@ -1,14 +1,19 @@
 import { Bell, Home, PlusCircle, Search, UserCircle } from 'lucide-react';
+import Link from 'next/link';
 
 const FooterBar = () => {
   return (
-    <div className="sticky inset-0 bottom-0 left-0 bg-light/90 backdrop-blur-3xl py-3 px-4">
+    <div className="bg-light/90 backdrop-blur-3xl py-3 px-4 rounded-xl md:hidden">
       <div className="flex justify-around">
-        <Home size={28} />
+        <Link href={'/'}>
+          <Home size={28} />
+        </Link>
         <Search size={28} />
         <PlusCircle size={28} />
         <Bell size={28} />
-        <UserCircle size={28} />
+        <Link href={'/profile'}>
+          <UserCircle size={28} />
+        </Link>
       </div>
     </div>
   );
