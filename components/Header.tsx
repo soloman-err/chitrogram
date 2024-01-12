@@ -19,7 +19,7 @@ const Header = () => {
   };
 
   return (
-    <section className="container sticky top-0 left-0 flex items-center md:gap-10 justify-between py-2 px-2 md:px-4 my-2 md:my-4 bg-dark/5 backdrop-blur-2xl rounded-full">
+    <section className="container hidden md:flex items-center md:gap-10 justify-between py-2 px-2 md:px-4 my-2 md:my-4 bg-dark/5 rounded-full">
       {/* Brand Logo */}
       <div>
         <Link href={'/'} className="flex items-center gap-2">

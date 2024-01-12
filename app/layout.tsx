@@ -2,6 +2,7 @@ import Header from '@/components/Header';
 import type { Metadata } from 'next';
 import { Outfit } from 'next/font/google';
 import './globals.css';
+import FooterBar from '@/components/FooterBar'
 
 const outfit = Outfit({
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
@@ -23,6 +24,7 @@ export default function RootLayout({
       <body className={outfit.className}>
         <Header />
         <main>{children}</main>
+        <FooterBar/>
       </body>
     </html>
   );
