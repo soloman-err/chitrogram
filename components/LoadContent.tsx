@@ -24,7 +24,7 @@ const LoadContent = () => {
       });
       page++;
     }
-  }, [inView]);
+  }, [inView, data]);
 
   const breakpointColumnsObj = {
     default: 6,
@@ -60,6 +60,7 @@ const LoadContent = () => {
                 duration: 0.5,
               }}
               viewport={{ amount: 0 }}
+              key={index}
             >
               <Image
                 src={image?.urls?.raw}
