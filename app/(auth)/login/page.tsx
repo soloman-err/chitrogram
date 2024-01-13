@@ -20,8 +20,8 @@ const Login = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center h-screen">
-      <div className="flex flex-col justify-center items-center max-w-sm w-full shadow-md pt-10 rounded-md">
+    <div className="flex flex-col justify-center items-center min-h-screen">
+      <div className="flex flex-col justify-center items-center max-w-sm w-[90%] shadow-md pt-10 rounded-md">
         {/* App Info */}
         <div className="flex flex-col justify-center">
           <div className="relative">
@@ -83,7 +83,7 @@ const Login = () => {
           </div>
           <div className="flex items-center justify-center">
             <button
-              className="bg-dark hover:bg-dark/80 text-white font-semibold py-2 px-4 rounded focus:outline-none w-full focus:shadow-outline text-lg"
+              className="bg-dark hover:bg-dark/80 text-white font-semibold py-2 px-4 rounded focus:outline-none w-full focus:shadow-outline md:text-lg"
               type="submit"
             >
               Sign In
