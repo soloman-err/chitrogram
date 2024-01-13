@@ -12,10 +12,16 @@ import { useState } from 'react';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [query, setQuery] = useState('');
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
     console.log('toggled');
+  };
+
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setQuery(event.target.value);
+    console.log('searched');
   };
 
   return (
@@ -32,19 +38,22 @@ const Header = () => {
       <div className="md:w-full flex items-center justify-between gap-2 bg-light py-1 md:p-2 px-2 rounded-full">
         <input
           type="text"
+          value={query}
+          onChange={handleSearchChange}
           placeholder="Search"
-          className="bg-transparent outline-none text-sm md:text-base"
+          className="bg-transparent outline-none text-sm md:text-base w-full"
         />
         <Search />
       </div>
 
-      <div className="md:hidden">
-        <PlusCircle />
-      </div>
-
       {/* User Functionalities */}
       <div className="hidden md:flex items-center gap-2">
-        <PlusCircle />
+        {/* <Moon /> */}
+
+        <Link href={'/create'}>
+          <PlusCircle />
+        </Link>
+
         <Link href={'/notifications'}>
           <Bell />
         </Link>

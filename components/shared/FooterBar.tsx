@@ -1,6 +1,6 @@
 import { Bell, Home, PlusCircle, Search } from 'lucide-react';
 import Link from 'next/link';
-import UserProfileButton from './auth-components/UserProfileButton';
+import UserProfileButton from '../others/auth-components/UserProfileButton';
 
 const FooterBar = () => {
   return (
@@ -9,8 +9,12 @@ const FooterBar = () => {
         <Link href={'/'}>
           <Home size={28} />
         </Link>
+
         <Search size={28} />
-        <PlusCircle size={28} />
+
+        <Link href={'/create'}>
+          <PlusCircle size={28} />
+        </Link>
 
         <Link href={'/notification'}>
           <Bell size={28} />

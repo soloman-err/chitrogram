@@ -10,7 +10,7 @@ import Masonry from 'react-masonry-css';
 const blurDataURL = 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD...';
 
 let page = 1;
-let query = 'mustang';
+let query = 'tree';
 
 const LoadContent = () => {
   const { ref, inView } = useInView();
@@ -47,7 +47,7 @@ const LoadContent = () => {
       >
         {data?.map(
           (
-            image: { urls: { raw: string }; alt_description: string },
+            image: { urls: { regular: string }; alt_description: string },
             index: number
           ) => (
             <motion.div
@@ -63,12 +63,14 @@ const LoadContent = () => {
               key={index}
             >
               <Image
-                src={image?.urls?.raw}
+                src={image?.urls?.regular}
                 alt={image?.alt_description}
                 width={400}
                 height={400}
                 placeholder="blur"
                 blurDataURL={blurDataURL}
+                className="bg-dark/5"
+                // loading="lazy"
               />
             </motion.div>
           )
