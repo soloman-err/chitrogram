@@ -9,9 +9,9 @@ import { createContext, useEffect, useState } from 'react';
 import { toast } from 'react-hot-toast';
 
 export type AuthContextType = {
-  loginUser: (email: string, password: string) => void;
-  registerUser: (email: string, password: string) => void;
-  updateUser: (user: Profile) => void;
+  loginUser: (email: string, password: string) => Promise<void>;
+  registerUser: (email: string, password: string) => Promise<void>;
+  updateUser: (user: Profile) => Promise<void>;
   user: User | null;
   authLoading: boolean;
   logOutUser: () => void;
@@ -25,31 +25,35 @@ const AuthProvider: React.FC<Children> = ({ children }) => {
   const router = useRouter();
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    const checkAuthStatus = async () => {
       try {
-        if (Cookies.get('__token__' || Cookies.get('__u_'))) {
-          const localUser: User = JSON.parse(Cookies.get('__u_') || '') || null;
-          if (localUser?.email && localUser?._id) {
-            setUser(localUser);
-            setAuthLoading(false);
-          } else {
-            toast.error('Invalid User');
-            throw new Error('Invalid User');
-          }
-        } else {
-          throw new Error('Login First.');
+        const token = Cookies.get('__token__');
+        const storedUser = Cookies.get('__u_');
+        if (!token || !storedUser) {
+          throw new Error('Authentication required');
         }
-      } catch (err) {
+
+        const localUser: User = JSON.parse(storedUser);
+        if (!localUser?.email || !localUser?._id) {
+          throw new Error('Invalid user data');
+        }
+
+        setUser(localUser);
+      } catch (error) {
+        // toast.error(error.message);
         setUser(null);
+        router.push('/login');
+      } finally {
         setAuthLoading(false);
       }
-    }
+    };
 
+    checkAuthStatus();
     return () => {
       setAuthLoading(false);
       setUser(null);
     };
-  }, []);
+  }, [router]);
 
   const loginUser = async (email: string, password: string) => {
     if ((!email && !password) || !email || !password) {
@@ -118,7 +122,6 @@ const AuthProvider: React.FC<Children> = ({ children }) => {
       });
   };
 
-  // Updating user profile:
   const updateUser = async (payload: Profile) => {
     try {
       if (!user || !user._id) {
@@ -161,8 +164,6 @@ const AuthProvider: React.FC<Children> = ({ children }) => {
     router.replace('/');
   };
 
-  const getResetLink = () => {};
-
   const auth = {
     user,
     loginUser,
@@ -171,6 +172,7 @@ const AuthProvider: React.FC<Children> = ({ children }) => {
     registerUser,
     updateUser,
   };
+
   return <AuthContext.Provider value={auth}>{children}</AuthContext.Provider>;
 };
 

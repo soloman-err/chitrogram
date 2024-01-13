@@ -1,5 +1,6 @@
-import { Bell, Home, PlusCircle, Search, UserCircle } from 'lucide-react';
+import { Bell, Home, PlusCircle, Search } from 'lucide-react';
 import Link from 'next/link';
+import UserProfileButton from './auth-components/UserProfileButton';
 
 const FooterBar = () => {
   return (
@@ -16,7 +17,7 @@ const FooterBar = () => {
         </Link>
 
         <Link href={'/profile'}>
-          <UserCircle size={28} />
+          <UserProfileButton />
         </Link>
       </div>
     </div>
